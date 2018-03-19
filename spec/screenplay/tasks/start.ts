@@ -1,5 +1,5 @@
 import { AddATodoItem } from './add_a_todo_item';
-import { Open, PerformsTasks, Task } from 'serenity-js/protractor';
+import { Open, PerformsTasks, step, Task } from 'serenity-js/protractor';
 
 export class Start implements Task {
     
@@ -9,6 +9,7 @@ export class Start implements Task {
         return new Start(items);
     };
 
+    @step('{0} starts with a Todo List containing #items')
     performAs(actor: PerformsTasks): PromiseLike<void> {
         return actor.attemptsTo(
             Open.browserOn('/examples/angularjs/'),

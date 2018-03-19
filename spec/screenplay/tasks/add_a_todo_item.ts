@@ -1,4 +1,4 @@
-import { Enter, PerformsTasks, Task} from 'serenity-js/protractor';
+import { Enter, PerformsTasks, step, Task} from 'serenity-js/protractor';
 import { protractor } from 'protractor';
 import { TodoList } from './../components/todo_list';
 
@@ -10,6 +10,7 @@ export class AddATodoItem implements Task {
         return new AddATodoItem(itemName);
     };
 
+    @step('{0} adds a Todo Item called #itemName')
     performAs(actor: PerformsTasks): PromiseLike<void> {
         return actor.attemptsTo(
             Enter.theValue(this.itemName)

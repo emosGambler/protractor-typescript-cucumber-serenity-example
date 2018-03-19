@@ -9,7 +9,8 @@
     "protractor": "protractor ./protractor.conf.js",
     "pretest": "serenity update",
     "report": "serenity run",
-    "test": "failsafe clean protractor report"
+    "open-report": "start ./target/site/serenity/index.html",
+    "test": "failsafe clean protractor report open-report"
   },
   "repository": {
     "type": "git",
