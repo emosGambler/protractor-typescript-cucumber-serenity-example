@@ -1,4 +1,4 @@
-import { Task, PerformsTasks, Click } from 'serenity-js/protractor';
+import { Task, PerformsTasks, Click, step } from 'serenity-js/protractor';
 import { TodoList } from './../components/todo_list';
 
 export class MarkATodoItemAsDone implements Task {
@@ -9,6 +9,7 @@ export class MarkATodoItemAsDone implements Task {
         return new MarkATodoItemAsDone(itemName);
     };
 
+    @step('{0} marks a Todo item called #itemName as done')
     performAs(actor: PerformsTasks): PromiseLike<void> {
         return actor.attemptsTo(
             Click.on(TodoList.Checkbox_Of_Item_With_Name(this.itemName))
