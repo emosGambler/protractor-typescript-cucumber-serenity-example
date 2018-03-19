@@ -12,7 +12,6 @@ exports.config = {
 
     // https://github.com/angular/protractor/blob/master/docs/timeouts.md
     allScriptsTimeout: 110000,
-
     disableChecks: true,
 
     // https://github.com/protractor-cucumber-framework/protractor-cucumber-framework#uncaught-exceptions
