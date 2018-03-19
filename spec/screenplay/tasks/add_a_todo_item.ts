@@ -6,11 +6,11 @@ export class AddATodoItem implements Task {
     
     constructor(private itemName: string) { };
 
-    static called(itemName: string) {
+    static called(itemName: string): AddATodoItem {
         return new AddATodoItem(itemName);
     };
 
-    @step('{0} adds a Todo Item called #itemName')
+    @step('{0} adds a Todo item called #itemName')
     performAs(actor: PerformsTasks): PromiseLike<void> {
         return actor.attemptsTo(
             Enter.theValue(this.itemName)

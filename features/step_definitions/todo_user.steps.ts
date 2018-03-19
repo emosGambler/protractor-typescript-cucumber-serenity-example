@@ -1,6 +1,7 @@
 import { Actor, BrowseTheWeb } from 'serenity-js/protractor';
 import { serenity } from 'serenity-js';
 import { AddATodoItem } from './../../spec/screenplay/tasks/add_a_todo_item';
+import { RemoveATodoItem } from './../../spec/screenplay/tasks/remove_a_todo_item';
 import { expect } from './../../spec/expect';
 import { listOf } from './../../spec/text';
 import { protractor } from 'protractor';
@@ -30,4 +31,10 @@ export = function todoUserSteps() {
     this.Then(/^.* todo list should contain (.*?)$/, function (items: string) {
         return expect(stage.theActorInTheSpotlight().toSee(TodoList.Items_Displayed)).eventually.deep.equal(listOf(items));
     });
+
+    this.When(/^s?he removes (.*?) from (?:his|her) list$/, (item: string) => {
+        return stage.theActorInTheSpotlight().attemptsTo(
+            RemoveATodoItem.called(item)
+        );
+    });    
 };
