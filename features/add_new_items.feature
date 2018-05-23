@@ -10,6 +10,7 @@ Feature: Add new items to the todo list
     When he adds <product> to his list
     Then his todo list should contain Walk the dog, <product>
 
+    # this below is just for cleaning purposes:
     When he removes Walk the dog from his list
     When he removes <product> from his list
 
