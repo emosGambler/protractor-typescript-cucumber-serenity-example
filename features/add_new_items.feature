@@ -10,6 +10,6 @@ Feature: Working with items on a todo list
     Then his todo list should contain Buy some cookies, Walk the dog, Buy some cereal
 
   Scenario: Remove item from list     
-    Given that James has a todo list containing Buy some cookies, Walk the dog
+    Given that James has a todo list containing Meditate
     When he removes Buy some cookies from his list
-    Then his todo list should contain Walk the dog
+    Then his todo list should contain Walk the dog, Buy some cereal, Meditate
