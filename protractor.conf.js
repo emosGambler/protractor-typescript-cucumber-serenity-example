@@ -11,15 +11,20 @@ exports.config = {
     capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-            args: [
-                'disable-infobars'
-            ]
+            args: [ 'disable-infobars', '--no-sandbox', '--test-type=browser'],
+            prefs: {
+                download: {
+                    prompt_for_download: false,
+                    default_directory: `${__dirname}/target/downloads`
+                }
+            }
         }
     },
     cucumberOpts: {
         require:    [ 'features/**/*.ts' ],
         format:     'pretty',
-        compiler:   'ts:ts-node/register'
+        compiler:   'ts:ts-node/register',
+        tags: '@test'
     },
     disableChecks: true,
     framework: 'custom',

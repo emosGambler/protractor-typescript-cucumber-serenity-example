@@ -10,7 +10,7 @@
     "pretest": "serenity update",
     "report": "serenity run",
     "open-report": "start ./target/site/serenity/index.html",
-    "test": "failsafe clean protractor report open-report"
+    "test": "failsafe clean protractor"
   },
   "repository": {
     "type": "git",

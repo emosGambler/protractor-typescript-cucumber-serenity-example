@@ -1,6 +1,7 @@
-import { Click, Task, PerformsTasks, step, Wait, Duration } from 'serenity-js/protractor';
-import { TodoList } from './../components/todo_list';
+import { Click, PerformsTasks, step, Task } from 'serenity-js/protractor';
+
 import { Hover } from './../../../utils/helpers';
+import { TodoList } from './../components/todo_list';
 
 export class RemoveATodoItem implements Task {
     
