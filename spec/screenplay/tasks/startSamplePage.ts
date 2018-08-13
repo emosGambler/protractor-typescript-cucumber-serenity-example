@@ -9,7 +9,7 @@ export class StartSamplePage implements Task {
     @step('{0} starts sample page')
     performAs(actor: PerformsTasks): PromiseLike<void> {
         return actor.attemptsTo(
-            Open.browserOn('https://www.webscorer.com/resources/templatestart'),
+            Open.browserOn('https://angular.io/guide/setup#download'),
         );
     };
 }

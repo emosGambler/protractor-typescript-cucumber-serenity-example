@@ -8,3 +8,6 @@ target
 # Node
 node_modules
 
+# other
+debug.log
+

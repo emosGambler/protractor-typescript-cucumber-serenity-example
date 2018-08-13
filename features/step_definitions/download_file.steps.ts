@@ -30,7 +30,7 @@ export = function downloadFileSteps() {
     });
 
     this.Then(/^the file is downloaded$/, () => {
-        const fileName: string = "Sample - individual start.txt";
+        const fileName: string = "quickstart-master.zip";
         return stage.theActorCalled(actor).attemptsTo(
             ValidateDownloadedFile.Name(fileName),
         );
