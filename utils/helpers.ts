@@ -1,4 +1,7 @@
 import { Target, Interaction, BrowseTheWeb } from "serenity-js/protractor";
+import { browser } from 'protractor';
+import * as fs from 'fs'
+import { expect } from './../spec/expect';
 
 export const Hover = {
     over: (target: Target) => Interaction.where(`#actor hovers over ${target}`, actor => {
@@ -7,4 +10,4 @@ export const Hover = {
             return browse.actions().mouseMove(el).perform();
         });
     })
-};
+}

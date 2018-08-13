@@ -30,7 +30,7 @@ export = function todoUserSteps() {
     });
     
     this.Then(/^.* todo list should contain (.*?)$/, function (items: string) {
-        return expect(stage.theActorInTheSpotlight().toSee(TodoList.Items_Displayed)).eventually.deep.equal(listOf(items));
+        return expect(stage.theActorInTheSpotlight().toSee(TodoList.Items_Displayed)).to.eventually.deep.equal(listOf(items));
     });
     
     this.When(/^s?he removes (.*?) from (?:his|her) list$/, (item: string) => {
@@ -46,6 +46,6 @@ export = function todoUserSteps() {
     });
 
     this.Then(/^(?:his|her) todo list contains of (.*?) item left$/, (count: string) => {
-        return expect(stage.theActorInTheSpotlight().toSee(Text.of(TodoList.Items_Left_Count))).eventually.deep.equal(count);
+        return expect(stage.theActorInTheSpotlight().toSee(Text.of(TodoList.Items_Left_Count))).to.eventually.equal(count);
     });
 };

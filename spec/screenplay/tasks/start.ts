@@ -1,5 +1,6 @@
-import { AddATodoItem } from './add_a_todo_item';
 import { Open, PerformsTasks, step, Task } from 'serenity-js/protractor';
+
+import { AddATodoItem } from './add_a_todo_item';
 
 export class Start implements Task {
     

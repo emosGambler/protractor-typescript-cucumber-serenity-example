@@ -1,4 +1,5 @@
-import { Task, PerformsTasks, Click, step } from 'serenity-js/protractor';
+import { Click, PerformsTasks, step, Task } from 'serenity-js/protractor';
+
 import { TodoList } from './../components/todo_list';
 
 export class MarkATodoItemAsDone implements Task {

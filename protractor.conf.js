@@ -5,21 +5,28 @@ const
     seleniumJar  = glob.sync(`${node_modules}/protractor/**/selenium-server-standalone-*.jar`).pop();
     crew         = require('serenity-js/lib/stage_crew');
 
+var fs = require("fs");
+
 exports.config = {
     allScriptsTimeout: 110000,
     baseUrl: 'http://todomvc.com',
     capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-            args: [
-                'disable-infobars'
-            ]
+            args: [ 'disable-infobars', '--no-sandbox', '--test-type=browser'],
+            prefs: {
+                download: {
+                    prompt_for_download: false,
+                    default_directory: `${__dirname}/target/downloads`
+                }
+            }
         }
     },
     cucumberOpts: {
         require:    [ 'features/**/*.ts' ],
         format:     'pretty',
         compiler:   'ts:ts-node/register'
+        //tags: '@test'
     },
     disableChecks: true,
     framework: 'custom',
@@ -32,5 +39,13 @@ exports.config = {
             crew.photographer()
         ]
     },
-    specs: [ 'features/**/*.feature' ]
+    specs: [ 'features/**/*.feature' ],
+    onPrepare: () => {
+        if (!fs.existsSync('./target')) {
+            fs.mkdirSync('./target')
+        }
+        if (!fs.existsSync('./target/downloads')) {
+            fs.mkdirSync('./target/downloads')
+        }
+    }
 };
